@@ -1,13 +1,34 @@
 class WordsQty
-  attr_accessor :test
-  @test = "teste"
+  # attr_accessor :test
+  # @test = "teste"
 
   def initialize(sequence)
-    @array = sequence.chars
-    print @array
+    @chars_list = sequence.chars
   end
 
-  # def possibilities()
+  def possibilities()
+    possibilities = []
+    input_length = @chars_list.length()
+    i = 3
+    loop do
+      chars_combinations = @chars_list.combination(i).to_a
+      chars_combinations.each do |set|
+        permutations = set.permutation().to_a
+
+
+      end
+
+      if i == input_length
+        break
+      end
+      
+
+    end
+    
+  end 
+
+  def all_possibilities(array_length)
+
 
 end 
 

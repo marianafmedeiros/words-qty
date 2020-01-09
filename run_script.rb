@@ -2,6 +2,6 @@ require './words_qty.rb'
 
 puts "Put the sequence of letters"
 a = gets.chomp()
-puts a.class
 word = WordsQty.new(a)
-puts word.test
+word.possibilities
+puts word.instance_variable_get(:@array_length).class
