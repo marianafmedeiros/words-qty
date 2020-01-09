@@ -1,8 +1,8 @@
 class EnglishDic
-  
-  def dic_array 
-  lines = Array.new
-  File.foreach('./english-words/words_alpha.txt') { |line| list << line }
+  attr_accessor :lines
+
+  def initialize(dic_path)
+   self.lines = File.readlines(dic_path, chomp: true)
   end
-  
+
 end  
