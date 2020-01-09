@@ -12,9 +12,11 @@ class WordsQty
     i = 3
     loop do
       chars_combinations = @chars_list.combination(i).to_a
+      possible_words = []
       chars_combinations.each do |set|
         permutations = set.permutation().to_a
-
+        permutations.each do |each|
+          
 
       end
 
