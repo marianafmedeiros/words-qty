@@ -9,12 +9,19 @@ class WordsQty
   def possibilities()
     list_of_words = []
     dic = EnglishDic.new('words_alpha.txt')
-    dic.lines.each do |word| 
-      freq_input = char_freq(@sequence)
-      freq_word = char_freq(word)
-      if freq_input == freq_word
-        list_of_words << word
-      end
+    i = 3
+    while i <= @sequence.chars.length
+      combinations = [@sequence].combination(i).to_a
+      combinations.each do |comb|
+        dic.lines.each do |word| 
+          freq_comb = char_freq(comb)
+          freq_word = char_freq(word)
+          if freq_comb == freq_word
+            list_of_words << word
+          end
+        end
+      end  
+      i += 1
     end
     puts list_of_words  
   end 
