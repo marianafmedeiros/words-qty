@@ -2,17 +2,17 @@ require './english_dic.rb'
 
 class WordsQty 
 
-  def initialize(sequence)
+  def initialize(sequence, dic)
     @sequence = sequence
+    @dic = dic
   end
 
   def possibilities()
     list_of_words = []
-    dic = EnglishDic.new('words_alpha.txt')
     chars = @sequence.chars
     (3..chars.length).each do |i|
       combinations = chars.combination(i)
-      dic.lines.each do |word| 
+      @dic.each do |word| 
         combinations.each do |comb|
           freq_comb = char_freq(comb.join)
           freq_word = char_freq(word)
@@ -20,7 +20,7 @@ class WordsQty
         end
       end  
     end
-    puts list_of_words 
+    list_of_words 
   end 
 
   def char_freq(input)
