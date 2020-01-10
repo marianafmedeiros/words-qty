@@ -11,10 +11,10 @@ class WordsQty
     dic = EnglishDic.new('words_alpha.txt')
     i = 3
     while i <= @sequence.chars.length
-      combinations = [@sequence].combination(i).to_a
+      combinations = @sequence.chars.combination(i).to_a
       combinations.each do |comb|
         dic.lines.each do |word| 
-          freq_comb = char_freq(comb)
+          freq_comb = char_freq(comb.join())
           freq_word = char_freq(word)
           if freq_comb == freq_word
             list_of_words << word
